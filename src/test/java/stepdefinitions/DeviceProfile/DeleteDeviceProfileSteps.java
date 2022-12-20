@@ -3,7 +3,7 @@ package stepdefinitions.DeviceProfile;
 import com.driver.WebdriverInitializer;
 import com.pages.DeviceProfile.DeleteDeviceProfilePage;
 import com.pages.DeviceProfile.VerifyDeviceProfilePage;
-import com.pages.SignIn.HomePage;
+import com.pages.Home.HomePage;
 import com.pages.SignIn.SignInPage;
 
 import io.cucumber.java.en.Given;

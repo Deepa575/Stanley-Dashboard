@@ -1,8 +1,8 @@
 package stepdefinitions.LocationType;
 
 import com.driver.WebdriverInitializer;
-import com.pages.SignIn.EditLocationTypePage;
-import com.pages.SignIn.HomePage;
+import com.pages.Home.HomePage;
+import com.pages.LocationType.EditLocationTypePage;
 import com.pages.SignIn.SignInPage;
 
 import io.cucumber.java.en.Given;
@@ -25,7 +25,7 @@ public class EditLocationTypeSteps {
 	}
 	
 	@When("User Edits Location Type {string} {string} {string} {string} {string} {string}")
-	public void user_edits_location_type_exp_msg(String locationTypeID, String locType, String description, String phyLocType, String cust, String expMsg) throws InterruptedException {
-		edtLocType.editLocationType(locationTypeID, locType, description, phyLocType, cust, expMsg);
+	public void user_edits_location_type_exp_msg(String oldLocType, String newlocType, String description, String phyLocType, String cust, String expMsg) throws InterruptedException {
+		edtLocType.editLocationType(oldLocType, newlocType, description, phyLocType, cust, expMsg);
 	}
 }

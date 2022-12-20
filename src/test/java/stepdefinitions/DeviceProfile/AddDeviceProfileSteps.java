@@ -3,7 +3,7 @@ package stepdefinitions.DeviceProfile;
 import com.driver.WebdriverInitializer;
 import com.pages.DeviceProfile.AddDeviceProfilePage;
 import com.pages.DeviceProfile.VerifyDeviceProfilePage;
-import com.pages.SignIn.HomePage;
+import com.pages.Home.HomePage;
 import com.pages.SignIn.SignInPage;
 
 import io.cucumber.java.en.Given;
@@ -69,21 +69,14 @@ public class AddDeviceProfileSteps {
 		Thread.sleep(1000);
 	}
 
-	@Then("Verify Submit button is Enabled")
-	public void verify_submit_button_is_enabled() throws InterruptedException {
-	    add_dp.isSubmitBtnEnabled();
-	    Thread.sleep(1000);
-	}
-
-	@When("Click on Submit")
-	public void click_on_submit() throws InterruptedException {
-	    add_dp.clickOnSubmitBtn();
-	    Thread.sleep(1000);
+	@When("Click on Submit button")
+	public void click_on_submit_button() throws InterruptedException {
+		add_dp.clickOnSubmitBtn();
 	}
 	
-	@Then("Verify Toaster Message for Add Device Profile functionality {string}")
-	public void verify_toaster_message_for_add_device_profile_functionality(String ExpMsg) throws InterruptedException {
-		add_dp.verifyToasterMsg(ExpMsg);
-		Thread.sleep(1000);
+	@Then("Verify Toaster Message for Add Device Profile {string}")
+	public void verify_toaster_message_for_add_device_profile(String ExpMsg) throws InterruptedException {
+		add_dp.verifyToasterMessage(ExpMsg);
 	}
+	
 }

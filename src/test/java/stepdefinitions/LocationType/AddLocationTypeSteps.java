@@ -1,8 +1,8 @@
 package stepdefinitions.LocationType;
 
 import com.driver.WebdriverInitializer;
-import com.pages.SignIn.HomePage;
-import com.pages.SignIn.LocationType_Page;
+import com.pages.Home.HomePage;
+import com.pages.LocationType.AddLocationTypePage;
 import com.pages.SignIn.SignInPage;
 
 import io.cucumber.java.en.Given;
@@ -13,7 +13,7 @@ public class AddLocationTypeSteps {
 
 	private SignInPage lgn = new SignInPage(WebdriverInitializer.getDriver());
 	private HomePage hp = new HomePage(WebdriverInitializer.getDriver());
-	private LocationType_Page loctype = new LocationType_Page(WebdriverInitializer.getDriver());
+	private AddLocationTypePage loctype = new AddLocationTypePage(WebdriverInitializer.getDriver());
 	
 	@Given("User is on the Location Type Page")
 	public void user_is_on_the_location_type_page() throws InterruptedException {
@@ -36,18 +36,8 @@ public class AddLocationTypeSteps {
 	    
 	}
 
-	@Then("Verify Submit button is Enabled for Add Location Type")
-	public void verify_submit_button_is_enabled_for_add_location_type() {
-		loctype.isSubmitButtonEnabled();
-	}
-
-	@Then("Click on Submit button")
-	public void click_on_submit_button() {
-	    loctype.clickOnSubmitBtn();
-	}
-
-	@Then("Verify Toaster Meassage for Add Location Type {string}")
-	public void verify_toaster_meassage_for_add_location_type(String ExpMsg) throws InterruptedException {
-		loctype.verifyToasterMsg(ExpMsg);;	    
+	@Then("Click on Submit button {string}")
+	public void click_on_submit_button(String ExpMsg) throws InterruptedException {
+	    loctype.clickOnSubmitBtn(ExpMsg);
 	}
 }

@@ -21,23 +21,27 @@ public class DeleteLocationTypePage {
 		this.driver = driver;
 	}
 
-	public void deleteLocTypeID(String LocTypeID, String ExpMsg) throws InterruptedException {
+	public void deleteLocType(String LocType, String ExpMsg) throws InterruptedException {
 		int size = driver.findElements(countOfLocTypeIDs).size();
 		int i;
+		int c=0;
 		for (i = 1; i <= size; i++) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			WebElement Element = driver.findElement(By.xpath("//*[@id=\"location_type_table\"]/tbody/tr["+i+"]/td[4]/span"));
+			WebElement Element = driver
+					.findElement(By.xpath("//*[@id=\"location_type_table\"]/tbody/tr[" + i + "]/td[2]/span"));
 			js.executeScript("arguments[0].scrollIntoView();", Element);
-			if (Element.getText().equals(LocTypeID)) {
-				driver.findElement(By.xpath("//span[text()=' " + LocTypeID
-						+ " ']/parent::td//following-sibling::td/descendant::i[@title='Delete']")).click();
-				Thread.sleep(2000);
+			if (Element.getText().equals(LocType)) {
+				JavascriptExecutor js1 = (JavascriptExecutor) driver;
+				WebElement delete = driver.findElement(By.xpath("//span[text()='" + LocType
+						+ "']/parent::td//following-sibling::td/descendant::i[@title='Delete']"));
+				js1.executeScript("arguments[0].click();", delete);
+				Thread.sleep(1000);
 				driver.findElement(yesBtn).click();
 				Thread.sleep(2000);
 				String ActMsg = driver.findElement(toasterMsg).getText();
 				Assert.assertEquals(ActMsg, ExpMsg);
 				Reporter.log("Location Type Deleted Successfully & Toaster message Verified", true);
-				Thread.sleep(2000);
+				c=1;
 				break;
 			}
 		}
@@ -49,29 +53,31 @@ public class DeleteLocationTypePage {
 					int j;
 					for (j = 1; j <= size1; j++) {
 						JavascriptExecutor js = (JavascriptExecutor) driver;
-						WebElement Element = driver.findElement(By.xpath("//*[@id=\"location_type_table\"]/tbody/tr["+i+"]/td[4]/span"));
+						WebElement Element = driver.findElement(
+								By.xpath("//*[@id=\"location_type_table\"]/tbody/tr[" + j + "]/td[2]/span"));
 						js.executeScript("arguments[0].scrollIntoView();", Element);
-						if (Element.getText().equals(LocTypeID)) {
-							driver.findElement(By.xpath("//span[text()=' " + LocTypeID
-									+ " ']/parent::td//following-sibling::td/descendant::i[@title='Delete']")).click();
-							Thread.sleep(2000);
+						if (Element.getText().equals(LocType)) {
+							JavascriptExecutor js1 = (JavascriptExecutor) driver;
+							WebElement delete = driver.findElement(By.xpath("//span[text()='" + LocType
+									+ "']/parent::td//following-sibling::td/descendant::i[@title='Delete']"));
+							js1.executeScript("arguments[0].click();", delete);
+							Thread.sleep(1000);
 							driver.findElement(yesBtn).click();
 							Thread.sleep(2000);
 							String ActMsg = driver.findElement(toasterMsg).getText();
 							Assert.assertEquals(ActMsg, ExpMsg);
 							Reporter.log("Location Type Deleted Successfully & Toaster message Verified", true);
-							Thread.sleep(2000);
 							break;
 						}
 					}
 					if (j > size1) {
-						Reporter.log("Entered Location Type ID does NOT exists in Table", true);
+						Assert.assertEquals("Entered Location Type does NOT exists in Table", ExpMsg);
 					}
 
 				}
-			} 
-		}else if(i<20)
-			Reporter.log("Entered Location Type ID does NOT exists in Table", true);
+			}
+		}else if(size<=20 & c==0) {
+			Assert.assertEquals("Entered Location Type does NOT exists in Table", ExpMsg);
 		}
-
 	}
+}

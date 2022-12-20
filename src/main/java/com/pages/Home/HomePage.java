@@ -1,11 +1,11 @@
-package com.pages.SignIn;
+package com.pages.Home;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage {
 
-	private WebDriver driver;
+private WebDriver driver;
 	
 	private By admin_Btn = By.xpath("//button[text()=' Administration ']");
 	private By deviceprof_Link = By.xpath("//a[text()=' Device Profile']");

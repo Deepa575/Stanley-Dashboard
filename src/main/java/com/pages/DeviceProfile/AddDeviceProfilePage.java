@@ -1,12 +1,15 @@
 package com.pages.DeviceProfile;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 public class AddDeviceProfilePage {
 
 	private WebDriver driver;
+	private boolean click = false;
 
 	private By deviceprofile_Txt = By.xpath("//input[@placeholder='Device Profile']");
 	private By version_txt = By.xpath("//input[@placeholder='Version']");
@@ -23,7 +26,13 @@ public class AddDeviceProfilePage {
 	}
 
 	public void enterDeviceProfileName(String DeviceProfileName) {
-		driver.findElement(deviceprofile_Txt).sendKeys(DeviceProfileName);
+		try {
+			driver.findElement(deviceprofile_Txt).sendKeys(DeviceProfileName);
+		} catch (Exception e) {
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].value=arguments[1]", driver.findElement(deviceprofile_Txt),
+					DeviceProfileName);
+		}
 	}
 
 	public void enterVersion(String version) {
@@ -51,17 +60,21 @@ public class AddDeviceProfilePage {
 		driver.findElement(boot_cmd_grp_json).sendKeys(boot_cmd_grp_json_path);
 	}
 
-	public void isSubmitBtnEnabled() {
-		driver.findElement(submit_btn).isEnabled();
+	public void clickOnSubmitBtn() throws InterruptedException {
+		if (driver.findElement(submit_btn).isEnabled()) {
+			driver.findElement(submit_btn).click();
+			click = true;
+		} 
 	}
 
-	public void clickOnSubmitBtn() {
-		driver.findElement(submit_btn).click();
-	}
-
-	public void verifyToasterMsg(String ExpMsg) throws InterruptedException {
-		String ActMsg = driver.findElement(toaster_msg).getText();
-		Assert.assertEquals(ActMsg, ExpMsg);
-		Thread.sleep(5000);
+	public void verifyToasterMessage(String ExpMsg) throws InterruptedException {
+		if (click == true) {
+			Thread.sleep(1000);
+			String ActMsg = driver.findElement(toaster_msg).getText();
+			Assert.assertEquals(ActMsg, ExpMsg);
+			Thread.sleep(1000);
+		}else {
+			Assert.assertEquals("Submit Button is Disabled. Need to fill Mandatory fields", ExpMsg);
+		}
 	}
 }

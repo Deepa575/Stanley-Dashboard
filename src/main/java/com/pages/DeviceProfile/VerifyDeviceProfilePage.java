@@ -1,6 +1,7 @@
 package com.pages.DeviceProfile;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class VerifyDeviceProfilePage {
@@ -31,7 +32,12 @@ public class VerifyDeviceProfilePage {
 	}
 
 	public void clickOnAddDeviceprofileBtn() {
-		driver.findElement(AddDeviceProfile_btn).click();
+		try {
+			driver.findElement(AddDeviceProfile_btn).click();
+		} catch (Exception e) {
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			executor.executeScript("arguments[0].click();", driver.findElement(AddDeviceProfile_btn));
+		}
 	}
 
 	public int getNoOfColumnsInDeviceProfileTable() {

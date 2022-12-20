@@ -1,7 +1,8 @@
 package stepdefinitions.DeviceProfile;
 
 import com.driver.WebdriverInitializer;
-import com.pages.SignIn.HomePage;
+import com.pages.DeviceProfile.EditDeviceProfilePage;
+import com.pages.Home.HomePage;
 import com.pages.SignIn.SignInPage;
 
 import io.cucumber.java.en.Given;
@@ -11,6 +12,7 @@ public class EditDeviceProfileSteps {
 
 	private SignInPage lgn = new SignInPage(WebdriverInitializer.getDriver());
 	private HomePage hp = new HomePage(WebdriverInitializer.getDriver());
+	private EditDeviceProfilePage edp = new EditDeviceProfilePage(WebdriverInitializer.getDriver());
 	
 	
 	@Given("Go to Device Profile Page")
@@ -22,28 +24,9 @@ public class EditDeviceProfileSteps {
 	    hp.clickOnDeviceProfileLink();
 	}
 
-	@When("Edit Device Profile Name {string}")
-	public void edit_device_profile_name(String string) {
-	  
+	@When("User Edits Device Profile {string} {string} {string} {string} {string} {string} {string}")
+	public void user_edits_device_profile(String devProfID, String devProfName, String version, String doorType, String from, String to, String expMsg) throws InterruptedException {
+		edp.editDeviceProfile(devProfID, devProfName, version, doorType, from, to, expMsg);
 	}
 
-	@When("Edit Version {string}")
-	public void edit_version(String string) {
-	    
-	}
-
-	@When("Edit Door Type {string}")
-	public void edit_door_type(String string) {
-	   
-	}
-
-	@When("Edit Firmware Range From {string}")
-	public void edit_firmware_range_from(String string) {
-	 
-	}
-
-	@When("Edit Firmware Range To {string}")
-	public void edit_firmware_range_to(String string) {
-	  
-	}
 }
