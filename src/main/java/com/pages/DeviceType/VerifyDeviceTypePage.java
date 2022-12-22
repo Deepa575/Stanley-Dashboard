@@ -53,31 +53,4 @@ public class VerifyDeviceTypePage {
 	public void clickOnSorting_icon() {
 		driver.findElement(Sorting_icon).click();
 	}
-//	    public void compareDeviceTypeDetails(String deviceType, String description) {
-//	    	String match;
-//	    	LinkedHashMap<String,String> map=new LinkedHashMap<>();
-//	    	for(int i=0;i<=getNoOfColumnsInDeviceTypeTable();i++) {
-////	    		map.put(driver.findElement(By.xpath("//tbody/tr"+i+"/td[2]")).getText(),
-////	    				driver.findElement(By.xpath("//tbody/tr"+i+"/td[3]")).getText());	
-//	    		System.out.println(driver.findElement(By.xpath("//tbody/tr"+i+"/td[2]")).getText());
-////	    		if(driver.findElement(By.xpath("//tbody/tr"+i+"/td[2]")).getText()==deviceType && 
-////	    				driver.findElement(By.xpath("//tbody/tr"+i+"/td[3]")).getText() == description)
-////	    		{
-////	    			System.out.println("Device type and Description Matched");
-////	    			break;
-////	    		}
-////	    	for(Map.Entry m:map.entrySet()) {
-////	    		if(m.getKey()==deviceType && m.getValue()==description)
-////	    		{
-////	    			System.out.println(m.getKey());
-////	    			System.out.println("Device type and Description Matched");
-////	    			 match = "Yes";
-////	    			 break;
-////	    		}
-////	    		else {
-////	    			match = "No";
-////	    		}
-//	    	}
-//	    }
-	//
 }
