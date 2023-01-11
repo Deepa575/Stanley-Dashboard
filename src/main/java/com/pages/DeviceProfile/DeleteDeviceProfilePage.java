@@ -11,6 +11,7 @@ public class DeleteDeviceProfilePage {
 
 	private WebDriver driver;
 
+	private By menuButton = By.xpath("//*[@id=\"fit-window\"]/div[1]/app-sidemenu/div/div/div/button");
 	private By yes_btn = By.xpath("//button[text()='Yes']");
 	private By toaster_msg = By.xpath("//*[@id='toast-container']/div/div");
 	private By count_devprofIDs = By.xpath("//tbody/tr/td[1]");
@@ -18,6 +19,9 @@ public class DeleteDeviceProfilePage {
 	public DeleteDeviceProfilePage(WebDriver driver) { 
 		
 		this.driver=driver;	
+	}
+	public void clickOnMenuButton() {
+		driver.findElement(menuButton).click();
 	}
 
 	public void deleteDevprofID(String devprofID, String ExpMsg) throws InterruptedException {

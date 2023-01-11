@@ -21,6 +21,7 @@ public class DeleteDeviceProfileSteps {
 	   lp.enterUsername("superadmin");
 	   lp.enterPassword("stanley@123");
 	   lp.clickOnSignIn();
+	   ddp.clickOnMenuButton();
 	   hp.clickOnAdminBtn();
 	   hp.clickOnDeviceProfileLink();
 	}

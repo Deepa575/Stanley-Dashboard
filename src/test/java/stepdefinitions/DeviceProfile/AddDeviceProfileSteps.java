@@ -16,21 +16,21 @@ public class AddDeviceProfileSteps {
 	private HomePage hp = new HomePage(WebdriverInitializer.getDriver());
 	private VerifyDeviceProfilePage dp = new VerifyDeviceProfilePage(WebdriverInitializer.getDriver());
 	private AddDeviceProfilePage add_dp = new AddDeviceProfilePage(WebdriverInitializer.getDriver());
-	
+
 	@Given("Go to Add Device Profile window")
 	public void go_to_add_device_profile_window() {
 		lp.enterUsername("superadmin");
-    	lp.enterPassword("stanley@123");
-    	lp.clickOnSignIn();
-    	hp.clickOnAdminBtn();
-    	hp.clickOnDeviceProfileLink();
-    	dp.clickOnAddDeviceprofileBtn();
+		lp.enterPassword("stanley@123");
+		lp.clickOnSignIn();
+		hp.clickOnAdminBtn();
+		hp.clickOnDeviceProfileLink();
+		dp.clickOnAddDeviceprofileBtn();
 	}
 
 	@When("Enter Device Profile Name {string}")
 	public void enter_device_profile_name(String DeviceProfileName) throws InterruptedException {
-	   add_dp.enterDeviceProfileName(DeviceProfileName);
-	   Thread.sleep(1000);
+		add_dp.enterDeviceProfileName(DeviceProfileName);
+		Thread.sleep(1000);
 	}
 
 	@When("Enter Version {string}")
@@ -73,10 +73,10 @@ public class AddDeviceProfileSteps {
 	public void click_on_submit_button() throws InterruptedException {
 		add_dp.clickOnSubmitBtn();
 	}
-	
+
 	@Then("Verify Toaster Message for Add Device Profile {string}")
 	public void verify_toaster_message_for_add_device_profile(String ExpMsg) throws InterruptedException {
 		add_dp.verifyToasterMessage(ExpMsg);
 	}
-	
+
 }

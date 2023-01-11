@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/LocationType"},
+        features = {"src/test/resources"},
         glue = {"stepdefinitions", "apphooks"},
         plugin = {"pretty",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",

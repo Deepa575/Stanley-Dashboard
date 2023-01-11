@@ -15,7 +15,7 @@ public class EditLocationTypePage {
 	private By Edit_LocType_Txtbox = By.xpath("//*[text()='Location Type *']//following-sibling::input");
 	private By Edit_Descr_Textbox = By.xpath("//*[text()='Description *']//following::textarea");
 	private By Edit_Phy_Location = By.xpath("//*[text()='Physical Location Type *']//following-sibling::select");
-	private By Edit_Customer = By.xpath("//*[text()='Customers *']//following-sibling::select");
+	private By Edit_Customer = By.xpath("//div/div[4]/div/vl-select/ng-select/div/span");
 	private By Submit_btn = By.xpath("//button[text()='Submit']");
 	private By ToasterMsg = By.xpath("//*[@id='toast-container']//following-sibling::div");
 	private By nextBtn = By.xpath("//a[text()=' Next ']");
@@ -58,7 +58,7 @@ public class EditLocationTypePage {
 				Thread.sleep(2000);
 				if (customer.length() > 0) {
 					driver.findElement(Edit_Customer).click();
-					driver.findElement(By.xpath("//option[text()='" + customer + "']")).click();
+					driver.findElement(By.xpath("//div/span[text()='"+customer+"']")).click();
 				}
 				Thread.sleep(2000);
 				if (driver.findElement(Submit_btn).isEnabled()) {
@@ -121,7 +121,7 @@ public class EditLocationTypePage {
 							Thread.sleep(2000);
 							if (customer.length() > 0) {
 								driver.findElement(Edit_Customer).click();
-								driver.findElement(By.xpath("//option[text()='" + customer + "']")).click();
+								driver.findElement(By.xpath("//div/span[text()='\"+customer+\"']")).click();
 							}
 							Thread.sleep(2000);
 							if (driver.findElement(Submit_btn).isEnabled()) {

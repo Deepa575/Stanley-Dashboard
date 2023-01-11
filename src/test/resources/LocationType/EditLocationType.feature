@@ -6,17 +6,17 @@ Feature: Validate the Edit Location type
 
     Examples: 
       | Old Location Type | New Location Type | Description | Physical Location Type | Customers    | Expected Msg                                               |
-      | "Test 45"         | "Test 4"          | "Testing"   | "Device Location"      | "All"        | "Location Type Edited Successfully"                        |
-      | "Testing 2"       | "Testing 2"       | "Test"      | "Device Location"      | "All"        | "Location Type Edited Successfully"                        |
-      | "Test Demo1"      | "Test Demo1"      | "Testing"   | "Device Location"      | "All"        | "Location Type Edited Successfully"                        |
-      | "Testing"         | "Testing"         | "Testing"   | "Device Location"      | "Walmart"    | "Location Type Edited Successfully"                        |
-      | "Testing"         | "Testing"         | "Testing"   | "Device Location"      | "Home Depot" | "Location Type Edited Successfully"                        |
-      | "Test 985"        | "    "            | "Testing"   | "Device Location"      | "All"        | "Duplicate Value Entered"                                  |
-      | "Test 287"        | "Test"            | "    "      | "Device Location"      | "All"        | "Duplicate Value Entered"                                  |
-      | "Test 985"        | "    "            | "    "      | "Device Location"      | "All"        | "Duplicate Value Entered"                                  |
+      | "Testing"         | "Test 4"          | "Testing"   | "Device Location"      | "Walmart"    | "Location Type Edited Successfully"                        |
+      | "Test 4"          | "Testing"         | "Test"      | "Device Location"      | "Vassar"     | "Location Type Edited Successfully"                        |
+      | "Testing"         | "12345"           | "Testing"   | "Device Location"      | "Home Depot" | "Location Type Edited Successfully"                        |
+      | "12345"           | "Test#####"       | "Testing"   | "Device Location"      | "Walmart"    | "Location Type Edited Successfully"                        |
+      | "Test#####"       | "Testing"         | "Testing"   | "Device Location"      | "Home Depot" | "Location Type Edited Successfully"                        |
+      | "Testing"         | "    "            | "Testing"   | "Device Location"      | "Vassar"     | "Duplicate Value Entered"                                  |
+      | "Testing"         | "Test"            | "    "      | "Device Location"      | "Vassar"     | "Duplicate Value Entered"                                  |
+      | "Testing"         | "    "            | "    "      | "Device Location"      | "Vassar"     | "Duplicate Value Entered"                                  |
       | "Testing"         | ""                | "Testing"   | "Device Location"      | "Home Depot" | "Submit Button is Disabled. Need to fill Mandatory fields" |
       | "Testing"         | "Testing"         | ""          | "Device Location"      | "Home Depot" | "Submit Button is Disabled. Need to fill Mandatory fields" |
       | "Testing"         | ""                | ""          | "Device Location"      | "Home Depot" | "Submit Button is Disabled. Need to fill Mandatory fields" |
-      | "Test@@@@@"       | "Test"            | "Testing"   | "Device Location"      | "All"        | "Entered Location Type does NOT exists in Table"           |
-      | "Test&&&&&"       | "Test"            | "Testing"   | "Device Location"      | "All"        | "Entered Location Type does NOT exists in Table"           |
-      | "Test$$$$$"       | "Test"            | "Testing"   | "Device Location"      | "All"        | "Entered Location Type does NOT exists in Table"           |
+      | "Test@@@@@"       | "Test"            | "Testing"   | "Device Location"      | "Walmart"    | "Entered Location Type does NOT exists in Table"           |
+      | "Test&&&&&"       | "Test"            | "Testing"   | "Device Location"      | "Walmart"    | "Entered Location Type does NOT exists in Table"           |
+      | "Test$$$$$"       | "Test"            | "Testing"   | "Device Location"      | "Vassar"     | "Entered Location Type does NOT exists in Table"           |

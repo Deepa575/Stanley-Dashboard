@@ -5,19 +5,14 @@ Feature: Validate Delete Location Type Functionality
     When Delete desired Location Type <LocationType> <ExpectedMessage>
 
     Examples: 
-      | LocationType     | ExpectedMessage                                  |
-      | "Testing East@@" | "Location Type Deleted Successfully"             |
-      | "Testing 11@@"   | "Location Type Deleted Successfully"             |
-      | "Test@12345@@"   | "Location Type Deleted Successfully"             |
-      | "Testing abc@@"  | "Location Type Deleted Successfully"             |
-      | "Testing 985@@"  | "Location Type Deleted Successfully"             |
-      | "Testing 25@@"   | "Location Type Deleted Successfully"             |
-      | "Testing 287@@"  | "Location Type Deleted Successfully"             |
-      | "Testing 548@@"  | "Location Type Deleted Successfully"             |
-      | "Testing 2@@"    | "Location Type Deleted Successfully"             |
-      | "Testing 2@@"    | "Entered Location Type does NOT exists in Table" |
-      | "Testing 25@@"   | "Entered Location Type does NOT exists in Table" |
-      | "Testing 985@@"  | "Entered Location Type does NOT exists in Table" |
-      | "Testing abc@@"  | "Entered Location Type does NOT exists in Table" |
-      | "Test@12345@@"   | "Entered Location Type does NOT exists in Table" |
-      | "Testing East@@" | "Entered Location Type does NOT exists in Table" |
+      | LocationType                | ExpectedMessage                                  |
+      | "Testing"                   | "Location Type Deleted Successfully"             |
+      | "TESTING"                   | "Location Type Deleted Successfully"             |
+      | "TestING"                   | "Location Type Deleted Successfully"             |
+      | "@@@@@34525"                | "Location Type Deleted Successfully"             |
+      | "Testing Description field" | "Location Type Deleted Successfully"             |
+      | "1234"                      | "Entered Location Type does NOT exists in Table" |
+      | "@@@@@"                     | "Entered Location Type does NOT exists in Table" |
+      | "&&&&&"                     | "Entered Location Type does NOT exists in Table" |
+      | "Testing"                   | "Entered Location Type does NOT exists in Table" |
+      | "Test@12345"                | "Entered Location Type does NOT exists in Table" |
